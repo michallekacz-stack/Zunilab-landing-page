@@ -94,10 +94,10 @@ export const translations: Record<Language, Translation> = {
       title: "Selected Works",
       subtitle: "See how we transform products into bestsellers.",
       projects: [
+        { title: "Beauty Hubs — Premium Brand Identity", brief: "Comprehensive branding from signet to full visual identity. We designed a modern logo, refined the color palette, and created a cohesive brandbook that builds a premium effect and maximum brand recognition.", imageSeed: "beautyhubs" },
         { title: "TechWear Smartwatch", brief: "Full 2D product visualization using AI and landing page assets for a premium smartwatch launch. Increased conversion by 45%.", imageSeed: "smartwatch" },
         { title: "Lumina Cosmetics", brief: "E-commerce banner system and A+ content for a luxury skincare line. Focused on clean, glowing aesthetics.", imageSeed: "cosmetics" },
-        { title: "Aero Headphones", brief: "High-impact social media creatives and product renders highlighting noise-cancellation features.", imageSeed: "headphones" },
-        { title: "Zenith Coffee Blend", brief: "Packaging visualization and rich content for Amazon listings. Designed to communicate organic, premium quality.", imageSeed: "coffee" }
+        { title: "Aero Headphones", brief: "High-impact social media creatives and product renders highlighting noise-cancellation features.", imageSeed: "headphones" }
       ]
     },
     hero: {
@@ -179,10 +179,10 @@ export const translations: Record<Language, Translation> = {
       title: "Wybrane Realizacje",
       subtitle: "Zobacz, jak zmieniamy produkty w bestsellery.",
       projects: [
+        { title: "Beauty Hubs — Premium Brand Identity", brief: "Kompleksowy branding od sygnetu po pełną identyfikację wizualną. Zaprojektowaliśmy nowoczesne logo, dopracowaliśmy kolorystykę i stworzyliśmy spójny brandbook, który buduje efekt premium i maksymalną rozpoznawalność marki.", imageSeed: "beautyhubs" },
         { title: "TechWear Smartwatch", brief: "Pełna wizualizacja produktowa 2D z wykorzystaniem AI i materiały na landing page dla premiery smartwatcha premium. Wzrost konwersji o 45%.", imageSeed: "smartwatch" },
         { title: "Lumina Cosmetics", brief: "System bannerów e-commerce i content A+ dla luksusowej linii kosmetyków. Skupienie na czystej, świetlistej estetyce.", imageSeed: "cosmetics" },
-        { title: "Aero Headphones", brief: "Wysokiej jakości kreacje social media i rendery produktu podkreślające funkcję redukcji szumów.", imageSeed: "headphones" },
-        { title: "Zenith Coffee Blend", brief: "Wizualizacja opakowań i rich content dla aukcji Amazon. Zaprojektowane, by komunikować organiczną jakość premium.", imageSeed: "coffee" }
+        { title: "Aero Headphones", brief: "Wysokiej jakości kreacje social media i rendery produktu podkreślające funkcję redukcji szumów.", imageSeed: "headphones" }
       ]
     },
     hero: {

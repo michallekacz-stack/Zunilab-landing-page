@@ -8,20 +8,74 @@ export const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [message, setMessage] = useState('');
+  const [file, setFile] = useState<File | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+    if (accessKey) {
+      try {
+        const formData = new FormData();
+        formData.append('access_key', accessKey);
+        formData.append('subject', `Nowe zapytanie projektowe od: ${name}`);
+        formData.append('from_name', name);
+        formData.append('email', email);
+        formData.append('Telefon', phone);
+        formData.append('Wiadomość', message);
+        if (file) {
+          formData.append('Załącznik_Brandbook', file);
+        }
+
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          setIsSuccess(true);
+          setName('');
+          setEmail('');
+          setPhone('');
+          setMessage('');
+          setFile(null);
+        } else {
+          alert('Wystąpił błąd podczas wysyłania. Spróbuj ponownie później.');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Wystąpił błąd sieci.');
+      }
+    } else {
+      // Fallback to mailto if no API key is provided
+      const subject = encodeURIComponent(`Nowe zapytanie projektowe: ${name}`);
+      const body = encodeURIComponent(
+        `Imię / Nazwa firmy: ${name}\n` +
+        `Email: ${email}\n` +
+        `Telefon: ${phone}\n\n` +
+        `Wiadomość:\n${message}\n\n` +
+        `---\n` +
+        `Uwaga: Załączniki nie mogą być dodane automatycznie w tej metodzie. Jeśli masz brandbook, załącz go ręcznie do tego maila.`
+      );
+      window.location.href = `mailto:info@zuni.studio?subject=${subject}&body=${body}`;
       setIsSuccess(true);
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 5000);
-    }, 1500);
+      setName('');
+      setEmail('');
+      setPhone('');
+      setMessage('');
+      setFile(null);
+    }
+
+    setIsSubmitting(false);
+    setTimeout(() => {
+      setIsSuccess(false);
+    }, 5000);
   };
 
   return (
@@ -71,6 +125,8 @@ export const Contact = () => {
                     type="text" 
                     id="name" 
                     required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all"
                     placeholder="Jan Kowalski / Zunilab"
                   />
@@ -83,6 +139,8 @@ export const Contact = () => {
                     type="email" 
                     id="email" 
                     required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all"
                     placeholder="jan@example.com"
                   />
@@ -96,6 +154,8 @@ export const Contact = () => {
                 <input 
                   type="tel" 
                   id="phone" 
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all"
                   placeholder="+48 000 000 000"
                 />
@@ -109,6 +169,8 @@ export const Contact = () => {
                   id="message" 
                   required
                   rows={4}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all resize-none"
                   placeholder="..."
                 ></textarea>
@@ -123,8 +185,13 @@ export const Contact = () => {
                 </div>
                 <div className="pl-8">
                   <label className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium bg-white/10 hover:bg-white/20 border border-white/10 rounded-lg cursor-pointer transition-colors">
-                    <span>Wybierz plik</span>
-                    <input type="file" className="hidden" accept=".pdf,.zip,.rar,.ai,.psd,.fig" />
+                    <span>{file ? file.name : 'Wybierz plik'}</span>
+                    <input 
+                      type="file" 
+                      className="hidden" 
+                      accept=".pdf,.zip,.rar,.ai,.psd,.fig" 
+                      onChange={(e) => setFile(e.target.files?.[0] || null)}
+                    />
                   </label>
                 </div>
               </div>

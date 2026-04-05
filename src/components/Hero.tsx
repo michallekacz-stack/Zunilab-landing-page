@@ -95,7 +95,7 @@ export const Hero = () => {
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
           <a 
-            href="#services" 
+            href="#portfolio" 
             className="w-full sm:w-auto flex items-center justify-center px-10 py-5 rounded-full glass-panel text-white font-bold text-lg hover:bg-white/10 transition-colors border-white/20"
           >
             {t.hero.secondaryCta}
