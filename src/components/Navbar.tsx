@@ -17,7 +17,7 @@ export const Navbar = () => {
         <div className="flex items-center">
           <a href="/" className="relative group flex items-center h-4">
             <img 
-              src="/portfolio/zunilab-logo.png" 
+              src="./portfolio/zunilab-logo.png" 
               alt="Zunilab" 
               className="h-4 w-auto transition-opacity duration-300 group-hover:opacity-0" 
             />

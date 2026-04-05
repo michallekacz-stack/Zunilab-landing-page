@@ -15,7 +15,7 @@ export const Process = () => {
 
         <div className="relative max-w-4xl mx-auto">
           {/* Connecting line */}
-          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-white/10 -translate-y-1/2 hidden md:block"></div>
+          <div className="absolute top-8 left-0 w-full h-0.5 bg-white/10 -translate-y-1/2 hidden md:block"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6">
             {t.process.steps.map((step, index) => (

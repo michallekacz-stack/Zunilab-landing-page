@@ -3,7 +3,7 @@ import { useLanguage } from '../lib/LanguageContext';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const PortfolioCard = ({ project, index }: { project: any, index: number }) => {
+const PortfolioCard = ({ project, index }: { project: any, index: number, key?: React.Key }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = (e: React.MouseEvent) => {
