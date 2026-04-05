@@ -15,7 +15,26 @@ export const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center">
-          <span className="font-display font-black text-2xl tracking-[0.15em] uppercase">ZUNILAB</span>
+          <a href="/" className="relative group flex items-center h-4">
+            <img 
+              src="/portfolio/zunilab-logo.png" 
+              alt="Zunilab" 
+              className="h-4 w-auto transition-opacity duration-300 group-hover:opacity-0" 
+            />
+            <div 
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-zuni-purple to-zuni-blue"
+              style={{
+                maskImage: 'url(/portfolio/zunilab-logo.png)',
+                maskSize: 'contain',
+                maskRepeat: 'no-repeat',
+                maskPosition: 'left center',
+                WebkitMaskImage: 'url(/portfolio/zunilab-logo.png)',
+                WebkitMaskSize: 'contain',
+                WebkitMaskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'left center',
+              }}
+            />
+          </a>
         </div>
 
         <div className="hidden md:flex items-center gap-8">

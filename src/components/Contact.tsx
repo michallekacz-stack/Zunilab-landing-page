@@ -20,8 +20,8 @@ export const Contact = () => {
     
     const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
-    if (accessKey) {
-      try {
+    try {
+      if (accessKey) {
         const formData = new FormData();
         formData.append('access_key', accessKey);
         formData.append('subject', `Nowe zapytanie projektowe od: ${name}`);
@@ -48,34 +48,41 @@ export const Contact = () => {
         } else {
           alert('Wystąpił błąd podczas wysyłania. Spróbuj ponownie później.');
         }
-      } catch (err) {
-        console.error(err);
+      } else {
+        // Fallback to mailto if no API key is provided
+        const subject = encodeURIComponent(`Nowe zapytanie projektowe: ${name}`);
+        const body = encodeURIComponent(
+          `Imię / Nazwa firmy: ${name}\n` +
+          `Email: ${email}\n` +
+          `Telefon: ${phone}\n\n` +
+          `Wiadomość:\n${message}\n\n` +
+          `---\n` +
+          `Uwaga: Załączniki nie mogą być dodane automatycznie w tej metodzie. Jeśli masz brandbook, załącz go ręcznie do tego maila.`
+        );
+        
+        // This can throw an error in sandboxed iframes (like AI Studio preview)
+        window.location.href = `mailto:info@zuni.studio?subject=${subject}&body=${body}`;
+        
+        setIsSuccess(true);
+        setName('');
+        setEmail('');
+        setPhone('');
+        setMessage('');
+        setFile(null);
+      }
+    } catch (err) {
+      console.error("Form submission error:", err);
+      if (!accessKey) {
+        alert('W podglądzie AI Studio otwieranie programu pocztowego jest zablokowane ze względów bezpieczeństwa. Dodaj klucz Web3Forms lub przetestuj na opublikowanej stronie.');
+      } else {
         alert('Wystąpił błąd sieci.');
       }
-    } else {
-      // Fallback to mailto if no API key is provided
-      const subject = encodeURIComponent(`Nowe zapytanie projektowe: ${name}`);
-      const body = encodeURIComponent(
-        `Imię / Nazwa firmy: ${name}\n` +
-        `Email: ${email}\n` +
-        `Telefon: ${phone}\n\n` +
-        `Wiadomość:\n${message}\n\n` +
-        `---\n` +
-        `Uwaga: Załączniki nie mogą być dodane automatycznie w tej metodzie. Jeśli masz brandbook, załącz go ręcznie do tego maila.`
-      );
-      window.location.href = `mailto:info@zuni.studio?subject=${subject}&body=${body}`;
-      setIsSuccess(true);
-      setName('');
-      setEmail('');
-      setPhone('');
-      setMessage('');
-      setFile(null);
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 5000);
     }
-
-    setIsSubmitting(false);
-    setTimeout(() => {
-      setIsSuccess(false);
-    }, 5000);
   };
 
   return (
