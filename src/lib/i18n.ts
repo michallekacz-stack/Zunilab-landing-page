@@ -1,17 +1,3 @@
-import beautyhubsSzyld from '../assets/portfolio/beautyhubs-szyld.png';
-import beautyhubsLogotyp from '../assets/portfolio/beautyhubs-logotyp.png';
-import beautyhubsStationary from '../assets/portfolio/beautyhubs-stationary.png';
-import youLogo from '../assets/portfolio/YOU-logo.jpg';
-import youLogo2 from '../assets/portfolio/YOU-logo2.png';
-import velvetBeanCoffeeBranding from '../assets/portfolio/VelvetBeanCoffee-Branding.jpg';
-import kuchniaMobile from '../assets/portfolio/kuchnia-mobile.png';
-import kolagen from '../assets/portfolio/kolagen.jpg';
-import beardOilsMockup from '../assets/portfolio/Beard-Oils-Mockup.jpg';
-import ksbarbersBc from '../assets/portfolio/ksbarbers-bc.png';
-import ksbarbersRollup from '../assets/portfolio/ksbarbers-rollup.png';
-import mlBanner from '../assets/portfolio/ml-banner.png';
-import studiosg from '../assets/portfolio/studiosg.png';
-
 export type Language = 'en' | 'pl';
 
 interface Translation {
@@ -108,10 +94,10 @@ export const translations: Record<Language, Translation> = {
       title: "Selected Works",
       subtitle: "See how we transform products into bestsellers.",
       projects: [
-        { title: "Beauty Hubs - Premium Brand Identity", brief: "Comprehensive branding from signet to full visual identity. We designed a modern logo, refined the color palette, and created a cohesive brandbook that builds a premium effect and maximum brand recognition.", images: [beautyhubsSzyld, beautyhubsLogotyp, beautyhubsStationary] },
-        { title: "YOU, Inspiracja to Ty - Premium Beauty Branding", brief: "Comprehensive branding for YOU beauty salon in Rzeszów. We created an elegant logo and cohesive brandbook that highlights the premium character, relaxation, and individual approach to the client. Minimalist aesthetics and refined typography build trust, distinguish the brand, and strengthen its position in the beauty segment.", images: [youLogo, youLogo2] },
-        { title: "E-commerce Banners - Visuals that sell", brief: "We design sales banners for e-commerce: sliders, campaigns, and rich content. Every element is optimized for conversion, from a strong key visual to clear hierarchy and premium aesthetics. The result is higher CTR, better image, and real sales growth.", images: [velvetBeanCoffeeBranding, kuchniaMobile, kolagen, beardOilsMockup] },
-        { title: "Print Design - from detail to large format", brief: "Comprehensive print designs: from large-format projects, through clothing, to flyers and business cards. Every material is refined for production and consistent with brand identity. Premium aesthetics, readability, and quality that does the job both on screen and in real life.", images: [ksbarbersBc, ksbarbersRollup, mlBanner, studiosg] }
+        { title: "Beauty Hubs - Premium Brand Identity", brief: "Comprehensive branding from signet to full visual identity. We designed a modern logo, refined the color palette, and created a cohesive brandbook that builds a premium effect and maximum brand recognition.", images: ['/portfolio/beautyhubs-szyld.png', '/portfolio/beautyhubs-logotyp.png', '/portfolio/beautyhubs-stationary.png'] },
+        { title: "YOU, Inspiracja to Ty - Premium Beauty Branding", brief: "Comprehensive branding for YOU beauty salon in Rzeszów. We created an elegant logo and cohesive brandbook that highlights the premium character, relaxation, and individual approach to the client. Minimalist aesthetics and refined typography build trust, distinguish the brand, and strengthen its position in the beauty segment.", images: ['/portfolio/YOU-logo.jpg', '/portfolio/YOU-logo2.png'] },
+        { title: "E-commerce Banners - Visuals that sell", brief: "We design sales banners for e-commerce: sliders, campaigns, and rich content. Every element is optimized for conversion, from a strong key visual to clear hierarchy and premium aesthetics. The result is higher CTR, better image, and real sales growth.", images: ['/portfolio/VelvetBeanCoffee-Branding.jpg', '/portfolio/kuchnia-mobile.png', '/portfolio/kolagen.jpg', '/portfolio/Beard-Oils-Mockup.jpg'] },
+        { title: "Print Design - from detail to large format", brief: "Comprehensive print designs: from large-format projects, through clothing, to flyers and business cards. Every material is refined for production and consistent with brand identity. Premium aesthetics, readability, and quality that does the job both on screen and in real life.", images: ['/portfolio/ksbarbers-bc.png', '/portfolio/ksbarbers-rollup.png', '/portfolio/ml-banner.png', '/portfolio/studiosg.png'] }
       ]
     },
     hero: {
@@ -193,10 +179,10 @@ export const translations: Record<Language, Translation> = {
       title: "Wybrane Realizacje",
       subtitle: "Zobacz, jak zmieniamy produkty w bestsellery.",
       projects: [
-        { title: "Beauty Hubs - Premium Brand Identity", brief: "Kompleksowy branding od sygnetu po pełną identyfikację wizualną. Zaprojektowaliśmy nowoczesne logo, dopracowaliśmy kolorystykę i stworzyliśmy spójny brandbook, który buduje efekt premium i maksymalną rozpoznawalność marki.", images: [beautyhubsSzyld, beautyhubsLogotyp, beautyhubsStationary] },
-        { title: "YOU, Inspiracja to Ty - Premium Beauty Branding", brief: "Kompleksowy branding dla salonu kosmetycznego YOU w Rzeszowie. Stworzyliśmy eleganckie logo i spójny brandbook, który podkreśla premium charakter, relaks i indywidualne podejście do klienta. Minimalistyczna estetyka i dopracowana typografia budują zaufanie, wyróżniają markę i wzmacniają jej pozycję w segmencie beauty.", images: [youLogo, youLogo2] },
-        { title: "Banery E-commerce - Grafiki, które sprzedają", brief: "Projektujemy banery sprzedażowe dla e-commerce: slidery, kampanie i rich content. Każdy element dopracowany pod konwersję, od mocnego key visuala po czytelną hierarchię i premium estetykę. Efekt to większy CTR, lepszy wizerunek i realny wzrost sprzedaży.", images: [velvetBeanCoffeeBranding, kuchniaMobile, kolagen, beardOilsMockup] },
-        { title: "Projekty do druku - od detalu po wielki format", brief: "Kompleksowe projekty do druku: od wielkoformatowych realizacji, przez odzież, po ulotki i wizytówki. Każdy materiał dopracowany pod produkcję i spójny z identyfikacją marki. Estetyka premium, czytelność i jakość, która robi robotę zarówno na ekranie, jak i w realu.", images: [ksbarbersBc, ksbarbersRollup, mlBanner, studiosg] }
+        { title: "Beauty Hubs - Premium Brand Identity", brief: "Kompleksowy branding od sygnetu po pełną identyfikację wizualną. Zaprojektowaliśmy nowoczesne logo, dopracowaliśmy kolorystykę i stworzyliśmy spójny brandbook, który buduje efekt premium i maksymalną rozpoznawalność marki.", images: ['/portfolio/beautyhubs-szyld.png', '/portfolio/beautyhubs-logotyp.png', '/portfolio/beautyhubs-stationary.png'] },
+        { title: "YOU, Inspiracja to Ty - Premium Beauty Branding", brief: "Kompleksowy branding dla salonu kosmetycznego YOU w Rzeszowie. Stworzyliśmy eleganckie logo i spójny brandbook, który podkreśla premium charakter, relaks i indywidualne podejście do klienta. Minimalistyczna estetyka i dopracowana typografia budują zaufanie, wyróżniają markę i wzmacniają jej pozycję w segmencie beauty.", images: ['/portfolio/YOU-logo.jpg', '/portfolio/YOU-logo2.png'] },
+        { title: "Banery E-commerce - Grafiki, które sprzedają", brief: "Projektujemy banery sprzedażowe dla e-commerce: slidery, kampanie i rich content. Każdy element dopracowany pod konwersję, od mocnego key visuala po czytelną hierarchię i premium estetykę. Efekt to większy CTR, lepszy wizerunek i realny wzrost sprzedaży.", images: ['/portfolio/VelvetBeanCoffee-Branding.jpg', '/portfolio/kuchnia-mobile.png', '/portfolio/kolagen.jpg', '/portfolio/Beard-Oils-Mockup.jpg'] },
+        { title: "Projekty do druku - od detalu po wielki format", brief: "Kompleksowe projekty do druku: od wielkoformatowych realizacji, przez odzież, po ulotki i wizytówki. Każdy materiał dopracowany pod produkcję i spójny z identyfikacją marki. Estetyka premium, czytelność i jakość, która robi robotę zarówno na ekranie, jak i w realu.", images: ['/portfolio/ksbarbers-bc.png', '/portfolio/ksbarbers-rollup.png', '/portfolio/ml-banner.png', '/portfolio/studiosg.png'] }
       ]
     },
     hero: {
