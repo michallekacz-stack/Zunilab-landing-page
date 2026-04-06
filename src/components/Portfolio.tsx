@@ -44,13 +44,13 @@ const PortfolioCard = ({ project, index }: { project: any, index: number, key?: 
             {/* Navigation Arrows */}
             <button 
               onClick={prevImage} 
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 z-20 backdrop-blur-md border border-white/10 hover:scale-110"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 transition-all duration-300 z-20 backdrop-blur-md border border-white/10 hover:scale-110"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button 
               onClick={nextImage} 
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 z-20 backdrop-blur-md border border-white/10 hover:scale-110"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 transition-all duration-300 z-20 backdrop-blur-md border border-white/10 hover:scale-110"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
