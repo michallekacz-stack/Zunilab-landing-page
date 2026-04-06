@@ -1,9 +1,105 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../lib/LanguageContext';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
-const PortfolioCard = ({ project, index }: { project: any, index: number, key?: React.Key }) => {
+const ProjectModal = ({ project, onClose }: { project: any, onClose: () => void }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev + 1) % project.images.length);
+  };
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowRight') setCurrentIndex((prev) => (prev + 1) % project.images.length);
+      if (e.key === 'ArrowLeft') setCurrentIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [project, onClose]);
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/90 backdrop-blur-sm" 
+      onClick={onClose}
+    >
+      <button onClick={onClose} className="absolute top-4 right-4 md:top-8 md:right-8 text-white/70 hover:text-white z-50 bg-black/50 rounded-full p-2 backdrop-blur-md border border-white/10 transition-all hover:scale-110">
+        <X className="w-6 h-6 md:w-8 md:h-8" />
+      </button>
+
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0, y: 20 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.95, opacity: 0, y: 20 }}
+        onClick={(e) => e.stopPropagation()}
+        className="bg-zuni-navy border border-white/10 rounded-2xl overflow-hidden max-w-6xl w-full max-h-[90vh] flex flex-col md:flex-row shadow-2xl"
+      >
+        {/* Image Section */}
+        <div className="relative flex-1 bg-black/50 flex items-center justify-center min-h-[40vh] md:min-h-[60vh]">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              src={project.images[currentIndex]}
+              alt={`${project.title} - Image ${currentIndex + 1}`}
+              className="absolute inset-0 w-full h-full object-contain p-2 md:p-6"
+            />
+          </AnimatePresence>
+
+          {project.images.length > 1 && (
+            <>
+              <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all z-20 backdrop-blur-md border border-white/10 hover:scale-110">
+                <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+              </button>
+              <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all z-20 backdrop-blur-md border border-white/10 hover:scale-110">
+                <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+              </button>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20 bg-black/50 px-4 py-2 rounded-full backdrop-blur-md border border-white/10">
+                {project.images.map((_: any, i: number) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentIndex(i)}
+                    className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex ? 'bg-white w-6' : 'bg-white/50 hover:bg-white/80 w-2'}`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Content Section */}
+        <div className="w-full md:w-1/3 p-6 md:p-8 flex flex-col overflow-y-auto bg-zuni-navy/80 backdrop-blur-md border-t md:border-t-0 md:border-l border-white/10">
+          <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">{project.title}</h3>
+          <div className="w-12 h-1 bg-gradient-to-r from-zuni-purple to-zuni-blue rounded-full mb-6"></div>
+          <p className="text-gray-300 leading-relaxed text-base md:text-lg">{project.brief}</p>
+          <div className="mt-auto pt-8 text-sm text-gray-500 font-mono">
+            {currentIndex + 1} / {project.images.length}
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+const PortfolioCard = ({ project, index, onClick }: { project: any, index: number, onClick: () => void, key?: React.Key }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = (e: React.MouseEvent) => {
@@ -23,6 +119,7 @@ const PortfolioCard = ({ project, index }: { project: any, index: number, key?: 
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group cursor-pointer"
+      onClick={onClick}
     >
       <div className="relative overflow-hidden rounded-3xl aspect-[4/3] mb-6 glass-panel group/carousel">
         <AnimatePresence mode="wait">
@@ -70,7 +167,7 @@ const PortfolioCard = ({ project, index }: { project: any, index: number, key?: 
       </div>
       <div>
         <h3 className="text-2xl font-bold mb-3 group-hover:text-zuni-purple-light transition-colors">{project.title}</h3>
-        <p className="text-gray-400 leading-relaxed">{project.brief}</p>
+        <p className="text-gray-400 leading-relaxed line-clamp-2">{project.brief}</p>
       </div>
     </motion.div>
   );
@@ -78,6 +175,7 @@ const PortfolioCard = ({ project, index }: { project: any, index: number, key?: 
 
 export const Portfolio = () => {
   const { t } = useLanguage();
+  const [selectedProject, setSelectedProject] = useState<any | null>(null);
 
   return (
     <section id="portfolio" className="py-24 relative z-10 bg-zuni-navy">
@@ -94,10 +192,16 @@ export const Portfolio = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {t.portfolio.projects.map((project, index) => (
-            <PortfolioCard key={index} project={project} index={index} />
+            <PortfolioCard key={index} project={project} index={index} onClick={() => setSelectedProject(project)} />
           ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+        )}
+      </AnimatePresence>
     </section>
   );
 };
