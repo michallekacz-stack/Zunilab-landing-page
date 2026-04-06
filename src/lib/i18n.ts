@@ -92,7 +92,7 @@ export const translations: Record<Language, Translation> = {
     },
     portfolio: {
       title: "Selected Works",
-      subtitle: "See how we transform products into bestsellers.",
+      subtitle: "Examples of materials designed for effective communication and sales.",
       projects: [
         { title: "Beauty Hubs - Premium Brand Identity", brief: "Comprehensive branding from signet to full visual identity. We designed a modern logo, refined the color palette, and created a cohesive brandbook that builds a premium effect and maximum brand recognition.", images: ['./portfolio/beautyhubs-szyld.png', './portfolio/beautyhubs-logotyp.png', './portfolio/beautyhubs-stationary.png'] },
         { title: "YOU, Inspiracja to Ty - Premium Beauty Branding", brief: "Comprehensive branding for YOU beauty salon in Rzeszów. We created an elegant logo and cohesive brandbook that highlights the premium character, relaxation, and individual approach to the client. Minimalist aesthetics and refined typography build trust, distinguish the brand, and strengthen its position in the beauty segment.", images: ['./portfolio/YOU-logo.jpg', './portfolio/YOU-logo2.png'] },
@@ -101,51 +101,57 @@ export const translations: Record<Language, Translation> = {
       ]
     },
     hero: {
-      headline: "We design visuals that don't just look good — they sell.",
-      subheadline: "High-converting product visuals for e-commerce brands ready to scale.",
+      headline: "We create visuals that don't just look good — they actively support sales.",
+      subheadline: "„Design is not just what it looks like and feels like. Design is how it works.”",
       primaryCta: "View Packages",
       secondaryCta: "See Our Work",
     },
     value: {
       title: "Why Zunilab?",
       items: [
-        { title: "Increase Perceived Value", desc: "Premium visuals justify premium pricing and build instant trust." },
-        { title: "Built for Performance", desc: "Every pixel is optimized to drive clicks, engagement, and sales." },
-        { title: "Ready for Ads", desc: "Stop wasting ad spend on poor creatives. We deliver ROAS-focused assets." }
+        { title: "Increased Perceived Value", desc: "We design based on principles of perception psychology, such as the halo effect and visual consistency. This makes the brand perceived as more credible and premium, which tangibly influences purchasing decisions." },
+        { title: "Designed for Effectiveness", desc: "Every project is based on data, testing, and user behavior patterns. We optimize visual elements for attention, comprehension, and action, not just aesthetics." },
+        { title: "Campaign-Ready", desc: "We create materials tailored to advertising platforms and their specifics. We consider formats, user attention, and context of use to support campaign effectiveness." },
+        { title: "AI as a Tool, Not a Shortcut", desc: "We use AI as a tool to accelerate the process and explore directions. Every project undergoes conscious selection, refinement, and design decisions." },
+        { title: "Brand-Tailored Approach", desc: "We start every project by understanding the product, target audience, and business context. We don't use ready-made templates; we build solutions tailored to the specific situation." }
       ]
     },
     services: {
+      kicker: "Visual design based on context, not random aesthetics.",
       title: "Our Expertise",
+      subtitle: "We specialize in visual materials for e-commerce, designed with sales context, user behavior, and platform requirements in mind.",
       items: [
-        { title: "Product Visuals", desc: "Stunning 2D product visualizations using AI to maximize sales." },
-        { title: "E-commerce Banners", desc: "High-impact hero banners and promotional graphics for your store." },
-        { title: "Rich Content Images", desc: "A+ content and infographics that educate and convert." },
-        { title: "Landing Page Visuals", desc: "Custom assets designed specifically for high-converting landing pages." }
+        { title: "Product Visuals", desc: "We create 2D visualizations using AI as a process-supporting tool. We focus on clear product presentation, detail, and context of use that influence purchasing decisions." },
+        { title: "E-commerce Banners", desc: "We design banners tailored to their placement. We consider information hierarchy, user attention span, and the specifics of advertising platforms." },
+        { title: "Rich Content", desc: "We design A+ content and infographics that organize information and make the offer easier to understand. They support the user in making a decision, especially for more complex products." },
+        { title: "Landing Page Visuals", desc: "We create visual materials consistent with the page structure and user journey. The design supports the message, readability, and section flow, rather than just being an aesthetic addition." }
       ]
     },
     packages: {
-      title: "Simple Pricing. Maximum Impact.",
+      title: "Simple Pricing. Real Value.",
       starter: {
         name: "Starter",
-        features: ["3 High-End Visuals", "Fast Delivery", "Entry-Level Testing", "1 Revision Round"],
+        features: ["3 Premium Visuals", "Fast Delivery", "Initial Target Audience Alignment", "1 Revision Round"],
       },
       growth: {
         name: "Growth",
-        features: ["6 High-End Visuals", "A/B Variations", "Ad-Ready Formats", "2 Revision Rounds"],
+        features: ["6 Premium Visuals", "A/B Variants (Different Visual Directions)", "Campaign-Ready Assets", "2 Revision Rounds"],
       },
       domination: {
         name: "Domination",
-        features: ["12 High-End Visuals", "Full Visual System", "Scaling-Ready Assets", "Unlimited Revisions"],
+        features: ["12 Premium Visuals", "Cohesive Visual System", "Assets Tailored for Campaign Scaling", "Unlimited Revisions"],
       },
-      cta: "Get Started"
+      cta: "Choose Package",
+      footerText: "We start every project by briefly getting to know your brand, product, and goal. This ensures the materials are tailored to the context, not created from a template."
     },
     process: {
-      title: "How It Works",
+      title: "How does the collaboration look?",
       steps: [
-        { title: "Send Brief", desc: "Fill out a simple form telling us about your product and goals." },
-        { title: "We Design", desc: "Our team crafts premium, conversion-focused visuals." },
-        { title: "Receive Assets", desc: "Get your ready-to-use assets and start scaling your sales." }
-      ]
+        { title: "Send a brief", desc: "You fill out a short form and provide information about the product, target audience, and the context of use for the materials." },
+        { title: "We design", desc: "Based on the brief, we create visual directions, taking into account the brand's character, product presentation, and user behavior." },
+        { title: "Receive materials", desc: "You receive ready-to-use files tailored to their placement, along with the option to request revisions within your chosen package." }
+      ],
+      footerText: "We work iteratively, taking your feedback into account at every stage."
     },
     contactForm: {
       title: "Let's Start a Project",
@@ -177,7 +183,7 @@ export const translations: Record<Language, Translation> = {
     },
     portfolio: {
       title: "Wybrane Realizacje",
-      subtitle: "Zobacz, jak zmieniamy produkty w bestsellery.",
+      subtitle: "Przykłady materiałów zaprojektowanych z myślą o skutecznej komunikacji i sprzedaży.",
       projects: [
         { title: "Beauty Hubs - Premium Brand Identity", brief: "Kompleksowy branding od sygnetu po pełną identyfikację wizualną. Zaprojektowaliśmy nowoczesne logo, dopracowaliśmy kolorystykę i stworzyliśmy spójny brandbook, który buduje efekt premium i maksymalną rozpoznawalność marki.", images: ['./portfolio/beautyhubs-szyld.png', './portfolio/beautyhubs-logotyp.png', './portfolio/beautyhubs-stationary.png'] },
         { title: "YOU, Inspiracja to Ty - Premium Beauty Branding", brief: "Kompleksowy branding dla salonu kosmetycznego YOU w Rzeszowie. Stworzyliśmy eleganckie logo i spójny brandbook, który podkreśla premium charakter, relaks i indywidualne podejście do klienta. Minimalistyczna estetyka i dopracowana typografia budują zaufanie, wyróżniają markę i wzmacniają jej pozycję w segmencie beauty.", images: ['./portfolio/YOU-logo.jpg', './portfolio/YOU-logo2.png'] },
@@ -186,51 +192,57 @@ export const translations: Record<Language, Translation> = {
       ]
     },
     hero: {
-      headline: "Tworzymy grafiki, które nie tylko wyglądają — one sprzedają.",
-      subheadline: "Wysoko konwertujące materiały wizualne dla marek e-commerce gotowych na skalowanie.",
+      headline: "Tworzymy grafiki, które nie tylko wyglądają — ale realnie wspierają sprzedaż.",
+      subheadline: "„Design is not just what it looks like and feels like. Design is how it works.”",
       primaryCta: "Zobacz Pakiety",
       secondaryCta: "Nasze Realizacje",
     },
     value: {
       title: "Dlaczego Zunilab?",
       items: [
-        { title: "Wzrost Postrzeganej Wartości", desc: "Grafiki premium uzasadniają wyższe ceny i budują natychmiastowe zaufanie." },
-        { title: "Zbudowane dla Wyników", desc: "Każdy piksel jest zoptymalizowany pod kątem kliknięć, zaangażowania i sprzedaży." },
-        { title: "Gotowe do Reklam", desc: "Przestań przepalać budżet na słabe kreacje. Dostarczamy materiały skupione na ROAS." }
+        { title: "Wzrost postrzeganej wartości", desc: "Projektujemy w oparciu o zasady psychologii percepcji, takie jak efekt halo i spójność wizualna. Dzięki temu marka jest odbierana jako bardziej wiarygodna i premium, co realnie wpływa na decyzje zakupowe." },
+        { title: "Projektowane pod skuteczność", desc: "Każdy projekt powstaje w oparciu o dane, testy i wzorce zachowań użytkowników. Optymalizujemy elementy wizualne pod uwagę, zrozumienie i działanie, nie tylko estetykę." },
+        { title: "Przygotowane do kampanii", desc: "Tworzymy materiały dopasowane do platform reklamowych i ich specyfiki. Uwzględniamy formaty, uwagę użytkownika i kontekst użycia, aby wspierać efektywność kampanii." },
+        { title: "AI jako wsparcie, nie skrót", desc: "Wykorzystujemy AI jako narzędzie przyspieszające proces i eksplorację kierunków. Każdy projekt przechodzi świadomą selekcję, dopracowanie i decyzje projektowe." },
+        { title: "Podejście dopasowane do marki", desc: "Każdy projekt zaczynamy od zrozumienia produktu, grupy docelowej i kontekstu biznesowego. Nie korzystamy z gotowych schematów, tylko budujemy rozwiązania dopasowane do konkretnej sytuacji." }
       ]
     },
     services: {
-      title: "Nasza Ekspertyza",
+      kicker: "Projektowanie wizualne oparte na kontekście, nie przypadkowej estetyce.",
+      title: "Nasza ekspertyza",
+      subtitle: "Specjalizujemy się w materiałach wizualnych dla e commerce, projektowanych z uwzględnieniem kontekstu sprzedaży, zachowań użytkowników i wymagań platform.",
       items: [
-        { title: "Wizualizacje Produktów", desc: "Wizualizacje produktowe 2D z wykorzystaniem AI do maksymalizacji sprzedaży." },
-        { title: "Bannery E-commerce", desc: "Wysokiej jakości bannery hero i grafiki promocyjne dla Twojego sklepu." },
-        { title: "Rich Content", desc: "Treści A+ i infografiki, które edukują i konwertują." },
-        { title: "Grafiki Landing Page", desc: "Dedykowane materiały zaprojektowane specjalnie na landing page." }
+        { title: "Wizualizacje produktów", desc: "Tworzymy wizualizacje 2D z wykorzystaniem AI jako narzędzia wspierającego proces. Skupiamy się na czytelnej prezentacji produktu, detalu i kontekście użycia, które wpływają na decyzje zakupowe." },
+        { title: "Bannery e commerce", desc: "Projektujemy bannery dopasowane do miejsc ich użycia. Uwzględniamy hierarchię informacji, czas uwagi użytkownika i specyfikę platform reklamowych." },
+        { title: "Rich content", desc: "Projektujemy treści A+ i infografiki, które porządkują informacje i ułatwiają zrozumienie oferty. Wspierają użytkownika w podjęciu decyzji, szczególnie przy bardziej złożonych produktach." },
+        { title: "Grafiki landing page", desc: "Tworzymy materiały wizualne spójne ze strukturą strony i ścieżką użytkownika. Projekt wspiera przekaz, czytelność i flow sekcji, zamiast być tylko dodatkiem estetycznym." }
       ]
     },
     packages: {
-      title: "Prosty Cennik. Maksymalny Efekt.",
+      title: "Prosty cennik. Realna wartość.",
       starter: {
         name: "Starter",
-        features: ["3 Grafiki Premium", "Szybka Dostawa", "Testowanie Rynku", "1 Runda Poprawek"],
+        features: ["3 grafiki premium", "Szybka realizacja", "Wstępne dopasowanie do grupy docelowej", "1 runda poprawek"],
       },
       growth: {
         name: "Growth",
-        features: ["6 Grafik Premium", "Wariacje A/B", "Gotowe do Reklam", "2 Rundy Poprawek"],
+        features: ["6 grafik premium", "Warianty A/B (różne kierunki wizualne)", "Przygotowane do użycia w kampaniach", "2 rundy poprawek"],
       },
       domination: {
         name: "Domination",
-        features: ["12 Grafik Premium", "Pełny System Wizualny", "Gotowe do Skalowania", "Nielimitowane Poprawki"],
+        features: ["12 grafik premium", "Spójny system wizualny", "Materiały dopasowane do skalowania kampanii", "Nielimitowane poprawki"],
       },
-      cta: "Rozpocznij"
+      cta: "Wybierz pakiet",
+      footerText: "Każdy projekt rozpoczynamy od krótkiego poznania Twojej marki, produktu i celu. Dzięki temu materiały są dopasowane do kontekstu, nie tworzone według szablonu."
     },
     process: {
-      title: "Jak to działa?",
+      title: "Jak wygląda współpraca?",
       steps: [
-        { title: "Wyślij Brief", desc: "Wypełnij prosty formularz, opowiadając nam o swoim produkcie i celach." },
-        { title: "Projektujemy", desc: "Nasz zespół tworzy premium, konwertujące materiały wizualne." },
-        { title: "Odbierz Materiały", desc: "Otrzymaj gotowe do użycia pliki i zacznij skalować sprzedaż." }
-      ]
+        { title: "Wyślij brief", desc: "Wypełniasz krótki formularz i przekazujesz informacje o produkcie, grupie docelowej i kontekście użycia materiałów." },
+        { title: "Projektujemy", desc: "Na podstawie briefu tworzymy kierunki wizualne, uwzględniając charakter marki, sposób prezentacji produktu i zachowania użytkowników." },
+        { title: "Odbierz materiały", desc: "Otrzymujesz gotowe pliki dopasowane do miejsca użycia, wraz z możliwością wprowadzenia poprawek w ramach wybranego pakietu." }
+      ],
+      footerText: "Pracujemy iteracyjnie, z uwzględnieniem Twojego feedbacku na każdym etapie."
     },
     contactForm: {
       title: "Rozpocznijmy projekt",

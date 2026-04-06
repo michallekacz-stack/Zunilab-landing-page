@@ -122,8 +122,24 @@ export const Contact = () => {
               <h3 className="text-2xl font-bold text-white mb-2">{t.contactForm.success}</h3>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.form 
+              onSubmit={handleSubmit} 
+              className="space-y-6 relative z-10"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+                }
+              }}
+            >
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } }}
+              >
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-gray-300 block">
                     {t.contactForm.name}
@@ -152,9 +168,12 @@ export const Contact = () => {
                     placeholder="jan@example.com"
                   />
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="space-y-2">
+              <motion.div 
+                className="space-y-2"
+                variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } }}
+              >
                 <label htmlFor="phone" className="text-sm font-medium text-gray-300 block">
                   {t.contactForm.phone}
                 </label>
@@ -166,9 +185,12 @@ export const Contact = () => {
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all"
                   placeholder="+48 000 000 000"
                 />
-              </div>
+              </motion.div>
 
-              <div className="space-y-2">
+              <motion.div 
+                className="space-y-2"
+                variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } }}
+              >
                 <label htmlFor="message" className="text-sm font-medium text-gray-300 block">
                   {t.contactForm.message}
                 </label>
@@ -181,9 +203,12 @@ export const Contact = () => {
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all resize-none"
                   placeholder="..."
                 ></textarea>
-              </div>
+              </motion.div>
 
-              <div className="space-y-3 p-5 bg-white/5 border border-white/10 rounded-xl">
+              <motion.div 
+                className="space-y-3 p-5 bg-white/5 border border-white/10 rounded-xl"
+                variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } }}
+              >
                 <div className="flex items-start gap-3">
                   <Paperclip className="w-5 h-5 text-zuni-purple mt-0.5 shrink-0" />
                   <p className="text-sm text-gray-300 leading-relaxed">
@@ -201,11 +226,12 @@ export const Contact = () => {
                     />
                   </label>
                 </div>
-              </div>
+              </motion.div>
 
-              <button 
+              <motion.button 
                 type="submit" 
                 disabled={isSubmitting}
+                variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } }}
                 className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-gradient-to-r from-zuni-purple to-zuni-blue text-white font-bold text-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed mt-4"
               >
                 {isSubmitting ? (
@@ -216,8 +242,8 @@ export const Contact = () => {
                     <Send className="w-5 h-5" />
                   </>
                 )}
-              </button>
-            </form>
+              </motion.button>
+            </motion.form>
           )}
         </motion.div>
       </div>

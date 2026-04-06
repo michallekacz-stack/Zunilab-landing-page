@@ -13,13 +13,14 @@ export const Services = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
+            <span className="text-zuni-purple-light font-medium tracking-wider uppercase text-sm mb-3 block">
+              {t.services.kicker}
+            </span>
             <h2 className="text-3xl md:text-5xl font-bold mb-4">{t.services.title}</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-zuni-purple to-zuni-blue rounded-full"></div>
           </div>
           <p className="text-gray-400 max-w-md">
-            {t.language === 'en' 
-              ? "We specialize in high-end visual assets designed specifically for e-commerce performance."
-              : "Specjalizujemy się w wysokiej klasy materiałach wizualnych zaprojektowanych pod kątem wyników w e-commerce."}
+            {t.services.subtitle}
           </p>
         </div>
 

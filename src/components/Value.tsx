@@ -1,12 +1,12 @@
 import React from 'react';
 import { useLanguage } from '../lib/LanguageContext';
 import { motion } from 'motion/react';
-import { TrendingUp, Zap, Target } from 'lucide-react';
+import { Brain, LineChart, Megaphone, Bot, Puzzle } from 'lucide-react';
 
 export const Value = () => {
   const { t } = useLanguage();
   
-  const icons = [TrendingUp, Zap, Target];
+  const icons = [Brain, LineChart, Megaphone, Bot, Puzzle];
 
   return (
     <section className="py-24 relative z-10 bg-zuni-navy">
@@ -16,9 +16,17 @@ export const Value = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-zuni-purple to-zuni-blue mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-8">
           {t.value.items.map((item, index) => {
             const Icon = icons[index];
+            
+            let gridClass = "col-span-1 md:col-span-2 lg:col-span-2";
+            if (index === 3) {
+              gridClass += " lg:col-start-2";
+            } else if (index === 4) {
+              gridClass += " md:col-start-2 lg:col-start-auto";
+            }
+
             return (
               <motion.div 
                 key={index}
@@ -26,7 +34,7 @@ export const Value = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-panel p-8 rounded-2xl relative overflow-hidden group"
+                className={`glass-panel p-8 rounded-2xl relative overflow-hidden group ${gridClass}`}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-zuni-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 

@@ -37,7 +37,7 @@ export const Packages = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-zuni-purple to-zuni-blue mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
           {packages.map((pkg, index) => (
             <motion.div 
               key={index}
@@ -90,6 +90,18 @@ export const Packages = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="max-w-2xl mx-auto text-center"
+        >
+          <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+            {t.packages.footerText}
+          </p>
+        </motion.div>
       </div>
     </section>
   );

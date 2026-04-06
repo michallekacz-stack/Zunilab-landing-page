@@ -17,7 +17,7 @@ export const Process = () => {
           {/* Connecting line */}
           <div className="absolute top-8 left-0 w-full h-0.5 bg-white/10 -translate-y-1/2 hidden md:block"></div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 mb-16">
             {t.process.steps.map((step, index) => (
               <motion.div 
                 key={index}
@@ -35,6 +35,18 @@ export const Process = () => {
               </motion.div>
             ))}
           </div>
+
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-center"
+          >
+            <p className="text-zuni-purple-light font-medium text-sm md:text-base tracking-wide">
+              {t.process.footerText}
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>

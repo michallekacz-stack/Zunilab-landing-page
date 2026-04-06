@@ -72,14 +72,19 @@ export const Hero = () => {
           ))}
         </motion.h1>
 
-        <motion.p 
+        <motion.div 
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto mb-10 pointer-events-auto font-medium drop-shadow-lg"
+          className="max-w-2xl mx-auto mb-10 pointer-events-auto drop-shadow-lg"
         >
-          {t.hero.subheadline}
-        </motion.p>
+          <p className="text-lg md:text-2xl text-gray-300 font-medium italic mb-2">
+            {t.hero.subheadline}
+          </p>
+          <p className="text-base md:text-lg text-gray-400 font-normal">
+            ~ Steve Jobs
+          </p>
+        </motion.div>
 
         <motion.div 
           initial={{ y: 40, opacity: 0 }}
