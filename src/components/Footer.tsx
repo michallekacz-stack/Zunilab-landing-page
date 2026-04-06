@@ -2,6 +2,7 @@ import React from 'react';
 import { useLanguage } from '../lib/LanguageContext';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import zunilabLogo from '../assets/portfolio/zunilab-logo.png';
 
 export const FinalCTA = () => {
   const { t, language } = useLanguage();
@@ -59,18 +60,18 @@ export const Footer = () => {
         <div className="flex items-center">
           <a href="/" className="relative group flex items-center h-4">
             <img 
-              src="./portfolio/zunilab-logo.png" 
+              src={zunilabLogo} 
               alt="Zunilab" 
               className="h-4 w-auto transition-opacity duration-300 group-hover:opacity-0" 
             />
             <div 
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-zuni-purple to-zuni-blue"
               style={{
-                maskImage: 'url(/portfolio/zunilab-logo.png)',
+                maskImage: `url(${zunilabLogo})`,
                 maskSize: 'contain',
                 maskRepeat: 'no-repeat',
                 maskPosition: 'left center',
-                WebkitMaskImage: 'url(/portfolio/zunilab-logo.png)',
+                WebkitMaskImage: `url(${zunilabLogo})`,
                 WebkitMaskSize: 'contain',
                 WebkitMaskRepeat: 'no-repeat',
                 WebkitMaskPosition: 'left center',
