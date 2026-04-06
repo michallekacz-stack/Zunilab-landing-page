@@ -57,9 +57,9 @@ export const Footer = () => {
     <footer className="py-12 border-t border-white/10 relative z-10 bg-black/80">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center">
-          <a href="/" className="relative group flex items-center h-4">
+          <a href="#" className="relative group flex items-center h-4">
             <img 
-              src="/portfolio/zunilab-logo.png" 
+              src="./portfolio/zunilab-logo.png" 
               alt="Zunilab" 
               className="h-4 w-auto transition-opacity duration-300 group-hover:opacity-0" 
             />
