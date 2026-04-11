@@ -70,6 +70,15 @@ interface Translation {
     submit: string;
     success: string;
   };
+  testimonials: {
+    title: string;
+    items: {
+      quote: string;
+      name: string;
+      handle: string;
+      avatar: string;
+    }[];
+  };
   finalCta: {
     headline: string;
     cta: string;
@@ -163,6 +172,59 @@ export const translations: Record<Language, Translation> = {
       submit: "Send Inquiry",
       success: "Message sent! We will contact you soon."
     },
+    testimonials: {
+      title: "What People Say",
+      items: [
+        {
+          quote: "The visual identity they created completely changed how our clients perceive us. Absolute premium quality.",
+          name: "Anna Kowalska",
+          handle: "@annak",
+          avatar: "https://i.pravatar.cc/150?u=anna"
+        },
+        {
+          quote: "Our e-commerce conversion jumped by 30% after implementing the new banners. Great understanding of sales.",
+          name: "Michał Nowak",
+          handle: "@mnowak_ecom",
+          avatar: "https://i.pravatar.cc/150?u=michal"
+        },
+        {
+          quote: "Fast delivery, great communication, and designs that hit the spot perfectly. Highly recommended!",
+          name: "Karolina Wiśniewska",
+          handle: "@karolinaw",
+          avatar: "https://i.pravatar.cc/150?u=karolina"
+        },
+        {
+          quote: "Finally an agency that understands that design must sell, not just look pretty in a portfolio.",
+          name: "Piotr Zieliński",
+          handle: "@pzielinski",
+          avatar: "https://i.pravatar.cc/150?u=piotr"
+        },
+        {
+          quote: "The brandbook we received is a masterpiece. It organized our entire communication.",
+          name: "Magdalena Wójcik",
+          handle: "@mwojcik_ceo",
+          avatar: "https://i.pravatar.cc/150?u=magda"
+        },
+        {
+          quote: "Professional approach from the first brief to the final files. We will definitely come back.",
+          name: "Tomasz Kamiński",
+          handle: "@tkaminski",
+          avatar: "https://i.pravatar.cc/150?u=tomasz"
+        },
+        {
+          quote: "Their A+ content designs for Amazon made our products stand out from the competition.",
+          name: "Katarzyna Lewandowska",
+          handle: "@klewandowska",
+          avatar: "https://i.pravatar.cc/150?u=kasia"
+        },
+        {
+          quote: "Top-notch aesthetics. The materials are refined in every detail.",
+          name: "Marcin Szymański",
+          handle: "@mszymanski",
+          avatar: "https://i.pravatar.cc/150?u=marcin"
+        }
+      ]
+    },
     finalCta: {
       headline: "Your product deserves better visuals.",
       cta: "Start Your Project",
@@ -253,6 +315,59 @@ export const translations: Record<Language, Translation> = {
       brandbook: "Brandbook firmowy jeśli posiadasz, jeśli nie, chętnie wesprzemy w realizacji brandbooka i całej identyfikacji wizualnej marki, produktów itd.",
       submit: "Wyślij zapytanie",
       success: "Wiadomość wysłana! Skontaktujemy się z Tobą wkrótce."
+    },
+    testimonials: {
+      title: "Co mówią o nas klienci",
+      items: [
+        {
+          quote: "Identyfikacja wizualna, którą stworzyli, całkowicie zmieniła postrzeganie nas przez klientów. Absolutna jakość premium.",
+          name: "Anna Kowalska",
+          handle: "@annak",
+          avatar: "https://i.pravatar.cc/150?u=anna"
+        },
+        {
+          quote: "Konwersja w naszym e-commerce skoczyła o 30% po wdrożeniu nowych banerów. Świetne zrozumienie sprzedaży.",
+          name: "Michał Nowak",
+          handle: "@mnowak_ecom",
+          avatar: "https://i.pravatar.cc/150?u=michal"
+        },
+        {
+          quote: "Szybka realizacja, świetny kontakt i projekty, które trafiają w punkt. Gorąco polecam!",
+          name: "Karolina Wiśniewska",
+          handle: "@karolinaw",
+          avatar: "https://i.pravatar.cc/150?u=karolina"
+        },
+        {
+          quote: "W końcu agencja, która rozumie, że design ma sprzedawać, a nie tylko ładnie wyglądać w portfolio.",
+          name: "Piotr Zieliński",
+          handle: "@pzielinski",
+          avatar: "https://i.pravatar.cc/150?u=piotr"
+        },
+        {
+          quote: "Brandbook, który otrzymaliśmy, to mistrzostwo. Uporządkował całą naszą komunikację.",
+          name: "Magdalena Wójcik",
+          handle: "@mwojcik_ceo",
+          avatar: "https://i.pravatar.cc/150?u=magda"
+        },
+        {
+          quote: "Profesjonalne podejście od pierwszego briefu po finalne pliki. Na pewno wrócimy.",
+          name: "Tomasz Kamiński",
+          handle: "@tkaminski",
+          avatar: "https://i.pravatar.cc/150?u=tomasz"
+        },
+        {
+          quote: "Ich projekty rich content na Amazon sprawiły, że nasze produkty wyróżniają się na tle konkurencji.",
+          name: "Katarzyna Lewandowska",
+          handle: "@klewandowska",
+          avatar: "https://i.pravatar.cc/150?u=kasia"
+        },
+        {
+          quote: "Estetyka na najwyższym poziomie. Materiały są dopracowane w każdym detalu.",
+          name: "Marcin Szymański",
+          handle: "@mszymanski",
+          avatar: "https://i.pravatar.cc/150?u=marcin"
+        }
+      ]
     },
     finalCta: {
       headline: "Twój produkt zasługuje na lepsze grafiki.",
