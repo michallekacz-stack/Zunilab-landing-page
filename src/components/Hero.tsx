@@ -2,6 +2,7 @@ import React from 'react';
 import { useLanguage } from '../lib/LanguageContext';
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import { Traces } from './Traces';
 
 export const Hero = () => {
   const { t } = useLanguage();
@@ -31,11 +32,13 @@ export const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-[#020208]"
       onMouseMove={handleMouseMove}
     >
-      {/* Grid Pattern */}
+      {/* Grid Pattern with Traces */}
       <motion.div 
         style={{ x: gridX, y: gridY }}
-        className="absolute inset-[-10%] w-[120%] h-[120%] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+')] [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] pointer-events-none"
-      ></motion.div>
+        className="absolute inset-[-10%] w-[120%] h-[120%] [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] pointer-events-none"
+      >
+        <Traces density="low" direction="outward" />
+      </motion.div>
 
       {/* Glowing Nebulas */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[300px] bg-zuni-purple/10 blur-[100px] rotate-[-15deg] mix-blend-screen pointer-events-none"></div>

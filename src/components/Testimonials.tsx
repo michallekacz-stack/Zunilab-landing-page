@@ -16,10 +16,10 @@ export const Testimonials = () => {
   const duplicatedRow2 = [...row2, ...row2, ...row2, ...row2];
 
   const TestimonialCard = ({ item }: { item: any }) => (
-    <div className="glass-panel p-6 rounded-2xl w-[350px] md:w-[400px] flex-shrink-0 mx-3 flex flex-col justify-between">
-      <p className="text-gray-300 mb-6 text-sm md:text-base leading-relaxed">"{item.quote}"</p>
+    <div className="glass-panel p-6 rounded-2xl w-[350px] md:w-[400px] flex-shrink-0 mx-3 flex flex-col justify-between border border-white/5 hover:border-zuni-purple/40 hover:shadow-[0_0_40px_rgba(157,0,255,0.15)] hover:-translate-y-1 transition-all duration-300 cursor-default group">
+      <p className="text-gray-300 mb-6 text-sm md:text-base leading-relaxed group-hover:text-white transition-colors">"{item.quote}"</p>
       <div className="flex items-center gap-4">
-        <img src={item.avatar} alt={item.name} className="w-12 h-12 rounded-full object-cover border border-white/10" referrerPolicy="no-referrer" />
+        <img src={item.avatar} alt={item.name} className="w-12 h-12 rounded-full object-cover border border-white/10 group-hover:border-zuni-purple/50 transition-colors" referrerPolicy="no-referrer" />
         <div>
           <h4 className="font-bold text-white text-sm">{item.name}</h4>
           <p className="text-zuni-purple-light text-xs">{item.handle}</p>
