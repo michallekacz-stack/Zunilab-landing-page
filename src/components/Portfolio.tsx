@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useLanguage } from '../lib/LanguageContext';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
@@ -30,25 +31,31 @@ const ProjectModal = ({ project, onClose }: { project: any, onClose: () => void 
     };
   }, [project, onClose]);
 
-  return (
+  if (typeof document === 'undefined') return null;
+
+  return createPortal(
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/90 backdrop-blur-sm" 
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-black/90 backdrop-blur-sm" 
       onClick={onClose}
     >
-      <button onClick={onClose} className="absolute top-4 right-4 md:top-8 md:right-8 text-white/70 hover:text-white z-50 bg-black/50 rounded-full p-2 backdrop-blur-md border border-white/10 transition-all hover:scale-110">
-        <X className="w-6 h-6 md:w-8 md:h-8" />
-      </button>
-
       <motion.div
         initial={{ scale: 0.95, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.95, opacity: 0, y: 20 }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-zuni-navy border border-white/10 rounded-2xl overflow-hidden max-w-6xl w-full max-h-[90vh] flex flex-col md:flex-row shadow-2xl"
+        className="bg-zuni-navy border border-white/10 rounded-2xl overflow-hidden max-w-6xl w-full max-h-[90vh] flex flex-col md:flex-row shadow-2xl relative"
       >
+        {/* Close Button inside modal */}
+        <button 
+          onClick={onClose} 
+          className="absolute top-4 right-4 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all z-50 backdrop-blur-md border border-white/10 hover:scale-110 hover:border-zuni-purple/50"
+        >
+          <X className="w-6 h-6" />
+        </button>
+
         {/* Image Section */}
         <div className="relative flex-1 bg-black/50 flex items-center justify-center min-h-[40vh] md:min-h-[60vh]">
           <AnimatePresence mode="wait">
@@ -95,7 +102,8 @@ const ProjectModal = ({ project, onClose }: { project: any, onClose: () => void 
           </div>
         </div>
       </motion.div>
-    </motion.div>
+    </motion.div>,
+    document.body
   );
 };
 
@@ -195,6 +203,7 @@ export const Portfolio = () => {
         </div>
       </div>
 
+      {/* Project Modal */}
       <AnimatePresence>
         {selectedProject && (
           <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />

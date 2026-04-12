@@ -32,11 +32,8 @@ export const Services = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-panel p-8 rounded-2xl relative overflow-hidden group hover:border-zuni-purple/60 hover:shadow-[0_0_25px_rgba(157,0,255,0.4)] transition-all duration-300 h-full"
+                className="bg-[#0a0a12] border border-white/10 p-8 rounded-2xl relative overflow-hidden group hover:border-zuni-purple/60 hover:shadow-[0_0_25px_rgba(157,0,255,0.4)] transition-all duration-300 h-full"
               >
-                {/* Abstract background glow */}
-                <div className="absolute -right-20 -top-20 w-64 h-64 bg-zuni-purple/10 rounded-full blur-[80px] group-hover:bg-zuni-purple/20 transition-colors duration-700"></div>
-                
                 <div className="relative z-10 flex flex-col h-full">
                   <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-zuni-purple-light group-hover:scale-110 transition-transform duration-500">
                     <Icon className="w-6 h-6" />
