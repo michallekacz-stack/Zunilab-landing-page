@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../lib/LanguageContext';
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { Traces } from './Traces';
 
 export const Hero = () => {
@@ -110,6 +110,23 @@ export const Hero = () => {
           </a>
         </motion.div>
       </div>
+
+      {/* Scroll Down Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 pointer-events-auto"
+      >
+        <a href="#how-it-works" className="text-gray-500 hover:text-white transition-colors flex flex-col items-center gap-2 group">
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <ChevronDown className="w-8 h-8 opacity-70 group-hover:opacity-100 transition-opacity" />
+          </motion.div>
+        </a>
+      </motion.div>
     </section>
   );
 };

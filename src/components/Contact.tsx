@@ -93,7 +93,7 @@ export const Contact = () => {
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-3xl md:text-5xl font-bold mb-4"
           >
             {t.contactForm.title}
           </motion.h2>

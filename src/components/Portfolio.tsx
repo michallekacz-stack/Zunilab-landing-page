@@ -180,12 +180,10 @@ export const Portfolio = () => {
   return (
     <section id="portfolio" className="py-24 relative z-10 bg-zuni-navy">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">{t.portfolio.title}</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-zuni-purple to-zuni-blue rounded-full"></div>
-          </div>
-          <p className="text-gray-400 max-w-md">
+        <div className="text-center mb-16 flex flex-col items-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">{t.portfolio.title}</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-zuni-purple to-zuni-blue mx-auto rounded-full mb-6"></div>
+          <p className="text-gray-400 max-w-2xl mx-auto">
             {t.portfolio.subtitle}
           </p>
         </div>

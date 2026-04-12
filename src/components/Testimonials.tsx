@@ -31,9 +31,9 @@ export const Testimonials = () => {
   return (
     <section className="py-24 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center gap-4 mb-16">
-          <div className="w-2 h-8 bg-zuni-purple rounded-full"></div>
-          <h2 className="text-3xl md:text-4xl font-bold">{t.testimonials.title}</h2>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">{t.testimonials.title}</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-zuni-purple to-zuni-blue mx-auto rounded-full"></div>
         </div>
 
         <div className="relative flex flex-col gap-6 pause-on-hover overflow-hidden -mx-4 px-4 py-4">

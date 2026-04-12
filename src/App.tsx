@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { Technologies } from './components/Technologies';
 import { Value } from './components/Value';
 import { Services } from './components/Services';
 import { Portfolio } from './components/Portfolio';
@@ -37,6 +38,7 @@ export default function App() {
         <Value />
         <Services />
         <Portfolio />
+        <Technologies />
         <Testimonials />
         <Packages />
         <Process />

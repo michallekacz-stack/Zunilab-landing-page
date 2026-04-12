@@ -23,6 +23,9 @@ interface Translation {
     primaryCta: string;
     secondaryCta: string;
   };
+  technologies: {
+    title: string;
+  };
   value: {
     title: string;
     items: {
@@ -115,6 +118,9 @@ export const translations: Record<Language, Translation> = {
       primaryCta: "View Packages",
       secondaryCta: "See Our Work",
     },
+    technologies: {
+      title: "Technologies we use",
+    },
     value: {
       title: "Why Zunilab?",
       items: [
@@ -176,16 +182,16 @@ export const translations: Record<Language, Translation> = {
       title: "What People Say",
       items: [
         {
-          quote: "The visual identity they created completely changed how our clients perceive us. Absolute premium quality.",
-          name: "Anna Kowalska",
-          handle: "@annak",
-          avatar: "https://i.pravatar.cc/150?u=anna"
+          quote: "Michał is a true passionate. He does his work very carefully, is extremely creative. Thanks to him, the logo of our sports studio looks exceptional and sensational. Great contact and fast execution. We continue to cooperate and recommend this professional with a clear conscience.",
+          name: "Seweryn Guzior",
+          handle: "Studio Sportu SG",
+          avatar: "https://ui-avatars.com/api/?name=Seweryn+Guzior&background=1a1a2e&color=c466ff"
         },
         {
-          quote: "Our e-commerce conversion jumped by 30% after implementing the new banners. Great understanding of sales.",
-          name: "Michał Nowak",
-          handle: "@mnowak_ecom",
-          avatar: "https://i.pravatar.cc/150?u=michal"
+          quote: "I had the pleasure of working with Michał on creating a logo for my company Beauty Hub Dublin. He showed great professionalism, creativity, and attention to detail. He carefully listened to my needs and created a project that perfectly reflects the brand's character. I fully recommend Michał as a talented graphic designer with passion and a fresh perspective.",
+          name: "Żaneta",
+          handle: "BeautyHubs",
+          avatar: "https://ui-avatars.com/api/?name=Zaneta&background=1a1a2e&color=c466ff"
         },
         {
           quote: "Fast delivery, great communication, and designs that hit the spot perfectly. Highly recommended!",
@@ -259,6 +265,9 @@ export const translations: Record<Language, Translation> = {
       primaryCta: "Zobacz Pakiety",
       secondaryCta: "Nasze Realizacje",
     },
+    technologies: {
+      title: "Technologie, z których korzystamy",
+    },
     value: {
       title: "Dlaczego Zunilab?",
       items: [
@@ -320,16 +329,16 @@ export const translations: Record<Language, Translation> = {
       title: "Co mówią o nas klienci",
       items: [
         {
-          quote: "Identyfikacja wizualna, którą stworzyli, całkowicie zmieniła postrzeganie nas przez klientów. Absolutna jakość premium.",
-          name: "Anna Kowalska",
-          handle: "@annak",
-          avatar: "https://i.pravatar.cc/150?u=anna"
+          quote: "Michał to prawdziwy pasjonat. Swoją pracę wykonuje bardzo starannie, jest mega kreatywny. Dzięki niemu logo naszego studia sportu wygląda wyjątkowo i rewelacyjnie. Super kontakt i szybka realizacja. Współpracujemy nadal i polecamy tego fachowca z czystym sumieniem.",
+          name: "Seweryn Guzior",
+          handle: "Studio Sportu SG",
+          avatar: "https://ui-avatars.com/api/?name=Seweryn+Guzior&background=1a1a2e&color=c466ff"
         },
         {
-          quote: "Konwersja w naszym e-commerce skoczyła o 30% po wdrożeniu nowych banerów. Świetne zrozumienie sprzedaży.",
-          name: "Michał Nowak",
-          handle: "@mnowak_ecom",
-          avatar: "https://i.pravatar.cc/150?u=michal"
+          quote: "Miałam przyjemność współpracować z Michałem przy tworzeniu logo dla mojej firmy Beauty Hub Dublin. Wykazał się dużym profesjonalizmem, kreatywnością i dbałością o szczegóły. Uważnie wysłuchał moich potrzeb i stworzył projekt, który idealnie oddaje charakter marki. Z pełnym przekonaniem polecam Michała jako utalentowanego grafika z pasją i świeżym spojrzeniem.",
+          name: "Żaneta",
+          handle: "BeautyHubs",
+          avatar: "https://ui-avatars.com/api/?name=Zaneta&background=1a1a2e&color=c466ff"
         },
         {
           quote: "Szybka realizacja, świetny kontakt i projekty, które trafiają w punkt. Gorąco polecam!",
