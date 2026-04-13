@@ -1,44 +1,22 @@
 import React from 'react';
 import { useLanguage } from '../lib/LanguageContext';
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
+import { motion } from 'motion/react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { Traces } from './Traces';
 
 export const Hero = () => {
   const { t } = useLanguage();
 
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const { currentTarget, clientX, clientY } = e;
-    const { left, top, width, height } = currentTarget.getBoundingClientRect();
-    const x = (clientX - left) / width - 0.5;
-    const y = (clientY - top) / height - 0.5;
-    mouseX.set(x);
-    mouseY.set(y);
-  };
-
-  const springConfig = { damping: 30, stiffness: 100 };
-  const smoothX = useSpring(mouseX, springConfig);
-  const smoothY = useSpring(mouseY, springConfig);
-
-  // Parallax layers
-  const gridX = useTransform(smoothX, [-0.5, 0.5], [-15, 15]);
-  const gridY = useTransform(smoothY, [-0.5, 0.5], [-15, 15]);
-
   return (
     <section 
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-[#020208]"
-      onMouseMove={handleMouseMove}
     >
       {/* Grid Pattern with Traces */}
-      <motion.div 
-        style={{ x: gridX, y: gridY }}
+      <div 
         className="absolute inset-[-10%] w-[120%] h-[120%] [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] pointer-events-none"
       >
         <Traces density="low" direction="outward" />
-      </motion.div>
+      </div>
 
       {/* Glowing Nebulas */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[300px] bg-zuni-purple/10 blur-[100px] rotate-[-15deg] mix-blend-screen pointer-events-none"></div>
@@ -59,7 +37,7 @@ export const Hero = () => {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-8 pointer-events-auto border-zuni-purple/30 bg-black/40"
         >
           <span className="w-2 h-2 rounded-full bg-zuni-purple animate-pulse glow-box"></span>
-          <span className="text-xs font-bold tracking-widest text-gray-200 uppercase">Premium Design Studio</span>
+          <span className="text-xs font-bold tracking-widest text-gray-200 uppercase">{t.hero.badge}</span>
         </motion.div>
 
         <motion.h1 
@@ -104,7 +82,7 @@ export const Hero = () => {
           </a>
           <a 
             href="#portfolio" 
-            className="w-full sm:w-auto flex items-center justify-center px-10 py-5 rounded-full glass-panel text-white font-bold text-lg hover:bg-white/10 transition-colors border-white/20"
+            className="w-full sm:w-auto flex items-center justify-center px-10 py-5 rounded-full bg-[#0a0a12] border border-white/10 text-white font-bold text-lg hover:border-zuni-purple/60 hover:shadow-[0_0_25px_rgba(157,0,255,0.4)] transition-all duration-300"
           >
             {t.hero.secondaryCta}
           </a>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useLanguage } from '../lib/LanguageContext';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, ArrowRight } from 'lucide-react';
 
 const ProjectModal = ({ project, onClose }: { project: any, onClose: () => void }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -94,9 +94,42 @@ const ProjectModal = ({ project, onClose }: { project: any, onClose: () => void 
 
         {/* Content Section */}
         <div className="w-full md:w-1/3 p-6 md:p-8 flex flex-col overflow-y-auto bg-zuni-navy/80 backdrop-blur-md border-t md:border-t-0 md:border-l border-white/10">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">{project.title}</h3>
-          <div className="w-12 h-1 bg-gradient-to-r from-zuni-purple to-zuni-blue rounded-full mb-6"></div>
-          <p className="text-gray-300 leading-relaxed text-base md:text-lg">{project.brief}</p>
+          {project.caseStudy ? (
+            <>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">{project.caseStudy.headline}</h3>
+              <div className="w-12 h-1 bg-gradient-to-r from-zuni-purple to-zuni-blue rounded-full mb-6"></div>
+              
+              <div className="space-y-6 text-gray-300 text-sm md:text-base">
+                {project.caseStudy.sections.map((section: any, idx: number) => (
+                  <div key={idx}>
+                    {section.title && <h4 className="text-white font-bold mb-2">{section.title}</h4>}
+                    <p className="leading-relaxed">{section.content}</p>
+                    {section.list && (
+                      <ul className="list-disc pl-5 mt-2 space-y-1">
+                        {section.list.map((item: string, i: number) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+                
+                {project.caseStudy.result && (
+                  <div className="mt-8 p-5 rounded-xl bg-gradient-to-br from-zuni-purple/20 to-zuni-blue/10 border border-zuni-purple/30 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-1 h-full bg-zuni-purple"></div>
+                    <p className="leading-relaxed text-white font-medium relative z-10">{project.caseStudy.result}</p>
+                  </div>
+                )}
+              </div>
+            </>
+          ) : (
+            <>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">{project.title}</h3>
+              <div className="w-12 h-1 bg-gradient-to-r from-zuni-purple to-zuni-blue rounded-full mb-6"></div>
+              <p className="text-gray-300 leading-relaxed text-base md:text-lg">{project.brief}</p>
+            </>
+          )}
+
           <div className="mt-auto pt-8 text-sm text-gray-500 font-mono">
             {currentIndex + 1} / {project.images.length}
           </div>
@@ -108,6 +141,7 @@ const ProjectModal = ({ project, onClose }: { project: any, onClose: () => void 
 };
 
 const PortfolioCard = ({ project, index, onClick }: { project: any, index: number, onClick: () => void, key?: React.Key }) => {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = (e: React.MouseEvent) => {
@@ -176,6 +210,9 @@ const PortfolioCard = ({ project, index, onClick }: { project: any, index: numbe
       <div>
         <h3 className="text-2xl font-bold mb-3 group-hover:text-zuni-purple-light transition-colors">{project.title}</h3>
         <p className="text-gray-400 leading-relaxed line-clamp-2">{project.brief}</p>
+        <div className="mt-4 flex items-center gap-2 text-zuni-purple-light font-medium group-hover:text-zuni-purple transition-colors">
+          {t.portfolio.readMore} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </div>
       </div>
     </motion.div>
   );

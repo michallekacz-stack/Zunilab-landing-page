@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useLanguage } from '../lib/LanguageContext';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, X } from 'lucide-react';
+import { ArrowRight, X, User } from 'lucide-react';
 
 export const Testimonials = () => {
   const { t } = useLanguage();
@@ -34,7 +34,9 @@ export const Testimonials = () => {
     <div className="bg-[#0a0a12] border border-white/10 p-6 rounded-2xl w-[350px] md:w-[400px] flex-shrink-0 mx-3 flex flex-col justify-between hover:border-zuni-purple/60 hover:shadow-[0_0_25px_rgba(157,0,255,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-default group">
       <p className="text-gray-300 mb-6 text-sm md:text-base leading-relaxed group-hover:text-white transition-colors line-clamp-4">"{item.quote}"</p>
       <div className="flex items-center gap-4">
-        <img src={item.avatar} alt={item.name} className="w-12 h-12 rounded-full object-cover border border-white/10 group-hover:border-zuni-purple/50 transition-colors" referrerPolicy="no-referrer" />
+        <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-zuni-purple/50 group-hover:bg-zuni-purple/10 transition-colors">
+          <User className="w-6 h-6 text-gray-400 group-hover:text-zuni-purple-light transition-colors" />
+        </div>
         <div>
           <h4 className="font-bold text-white text-sm">{item.name}</h4>
           <p className="text-zuni-purple-light text-xs">{item.handle}</p>
@@ -53,7 +55,7 @@ export const Testimonials = () => {
             onClick={() => setIsModalOpen(true)}
             className="inline-flex items-center gap-2 text-zuni-purple hover:text-white font-medium transition-colors group"
           >
-            View all <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            {t.testimonials.viewAll} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 
@@ -114,7 +116,9 @@ export const Testimonials = () => {
                     <div key={idx} className="bg-[#0a0a12] border border-white/10 p-6 rounded-2xl flex flex-col justify-between hover:border-zuni-purple/60 hover:shadow-[0_0_25px_rgba(157,0,255,0.4)] transition-all duration-300 group">
                       <p className="text-gray-300 mb-6 text-sm md:text-base leading-relaxed group-hover:text-white transition-colors">"{item.quote}"</p>
                       <div className="flex items-center gap-4">
-                        <img src={item.avatar} alt={item.name} className="w-12 h-12 rounded-full object-cover border border-white/10 group-hover:border-zuni-purple/50 transition-colors" referrerPolicy="no-referrer" />
+                        <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-zuni-purple/50 group-hover:bg-zuni-purple/10 transition-colors">
+                          <User className="w-6 h-6 text-gray-400 group-hover:text-zuni-purple-light transition-colors" />
+                        </div>
                         <div>
                           <h4 className="font-bold text-white text-sm">{item.name}</h4>
                           <p className="text-zuni-purple-light text-xs">{item.handle}</p>

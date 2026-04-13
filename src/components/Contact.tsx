@@ -40,7 +40,7 @@ export const Contact = () => {
       setMessage('');
     } catch (err) {
       console.error("Form submission error:", err);
-      alert('Wystąpił błąd. Spróbuj ponownie później.');
+      alert(t.contactForm.error);
     } finally {
       setIsSubmitting(false);
       setTimeout(() => {
@@ -115,7 +115,7 @@ export const Contact = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all"
-                    placeholder="Jan Kowalski / Zunilab"
+                    placeholder={t.contactForm.namePlaceholder}
                   />
                 </div>
                 <div className="space-y-2">
