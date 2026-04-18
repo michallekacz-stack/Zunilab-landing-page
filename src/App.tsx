@@ -9,7 +9,7 @@ import { Testimonials } from './components/Testimonials';
 import { Packages } from './components/Packages';
 import { Process } from './components/Process';
 import { Contact } from './components/Contact';
-import { FinalCTA, Footer } from './components/Footer';
+import { Footer } from './components/Footer';
 
 export default function App() {
   useEffect(() => {
@@ -43,7 +43,6 @@ export default function App() {
         <Packages />
         <Process />
         <Contact />
-        <FinalCTA />
       </main>
       <Footer />
     </div>

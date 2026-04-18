@@ -267,8 +267,8 @@ export const translations: Record<Language, Translation> = {
       ]
     },
     packages: {
-      title: "Simple Pricing. Real Value.",
-      mostPopular: "Most Popular",
+      title: "Value-Based Pricing",
+      mostPopular: "Bestseller",
       starter: {
         name: "Starter",
         features: ["3 Premium Visuals", "Fast Delivery", "Initial Target Audience Alignment", "1 Revision Round"],
@@ -294,7 +294,10 @@ export const translations: Record<Language, Translation> = {
       footerText: "We work iteratively, taking your feedback into account at every stage."
     },
     contactForm: {
-      title: "Let's Start a Project",
+      title: "Contact",
+      contactInfo: "Contact Information",
+      description: "Do you prefer direct contact? Call or write to us, or just use the form. We respond specifically and to the point.",
+      socials: "Find us online",
       name: "Name / Company Name",
       namePlaceholder: "John Doe / Zunilab",
       email: "Email Address",
@@ -520,8 +523,8 @@ export const translations: Record<Language, Translation> = {
       ]
     },
     packages: {
-      title: "Prosty cennik. Realna wartość.",
-      mostPopular: "Najczęściej wybierany",
+      title: "Cennik oparty na wartości",
+      mostPopular: "Bestseller",
       starter: {
         name: "Starter",
         features: ["3 grafiki premium", "Szybka realizacja", "Wstępne dopasowanie do grupy docelowej", "1 runda poprawek"],
@@ -547,7 +550,10 @@ export const translations: Record<Language, Translation> = {
       footerText: "Pracujemy iteracyjnie, z uwzględnieniem Twojego feedbacku na każdym etapie."
     },
     contactForm: {
-      title: "Rozpocznijmy projekt",
+      title: "Kontakt",
+      contactInfo: "Dane kontaktowe",
+      description: "Wolisz bezpośredni kontakt? Zadzwoń lub napisz, albo po prostu skorzystaj z formularza obok. Odpowiadamy konkretnie i na temat.",
+      socials: "Znajdź nas w sieci",
       name: "Nazwa / Imię i nazwisko",
       namePlaceholder: "Jan Kowalski / Zunilab",
       email: "Adres e-mail",

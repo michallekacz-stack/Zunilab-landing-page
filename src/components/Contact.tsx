@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../lib/LanguageContext';
 import { motion } from 'motion/react';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Phone, Mail, Facebook, Instagram } from 'lucide-react';
 
 // Custom WhatsApp Icon
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -51,7 +51,7 @@ export const Contact = () => {
 
   return (
     <section id="contact-form" className="py-24 relative z-10 bg-zuni-navy">
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <motion.h2 
             initial={{ y: 20, opacity: 0 }}
@@ -64,129 +64,181 @@ export const Contact = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-zuni-purple to-zuni-blue mx-auto rounded-full"></div>
         </div>
 
-        <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="glass-panel p-8 md:p-12 rounded-3xl border-white/10 relative overflow-hidden"
-        >
-          {/* Background glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-zuni-purple/10 blur-[60px] pointer-events-none"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+          {/* Left Column: Contact Details */}
+          <motion.div 
+            initial={{ x: -30, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col h-full relative z-10"
+          >
+            <div>
+              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6 pt-4">{t.contactForm.contactInfo}</h3>
+              <p className="text-gray-400 mb-12 text-lg leading-relaxed">{t.contactForm.description}</p>
 
-          {isSuccess ? (
-            <motion.div 
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="flex flex-col items-center justify-center py-16 text-center"
-            >
-              <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-6">
-                <CheckCircle2 className="w-10 h-10 text-green-400" />
+                <div className="space-y-6">
+                  <a href="tel:+48571431666" className="flex items-center gap-5 text-gray-300 hover:text-white transition-colors group">
+                    <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-zuni-purple/20 group-hover:border-zuni-purple/50 transition-all shadow-lg">
+                      <Phone className="w-6 h-6 text-zuni-purple-light" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-400 font-medium tracking-wide uppercase mb-1">Telefon</p>
+                      <p className="font-semibold text-xl tracking-wider">+48 571 431 666</p>
+                    </div>
+                  </a>
+                  <a href="mailto:info@zuni.studio" className="flex items-center gap-5 text-gray-300 hover:text-white transition-colors group">
+                    <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-zuni-purple/20 group-hover:border-zuni-purple/50 transition-all shadow-lg">
+                      <Mail className="w-6 h-6 text-zuni-purple-light" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-400 font-medium tracking-wide uppercase mb-1">Email</p>
+                      <p className="font-semibold text-xl tracking-wide">info@zuni.studio</p>
+                    </div>
+                  </a>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2">{t.contactForm.success}</h3>
+
+              <div className="mt-16 lg:mt-auto pt-8 border-t border-white/10">
+                <h4 className="text-sm font-bold text-white uppercase tracking-widest mb-6">{t.contactForm.socials}</h4>
+                <div className="flex gap-4">
+                  <a href="https://www.facebook.com/profile.php?id=61574394613374" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#1877F2]/20 hover:border-[#1877F2]/50 hover:text-[#1877F2] transition-all text-gray-400">
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                  <a href="https://www.instagram.com/zunilab.studio/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#E1306C]/20 hover:border-[#E1306C]/50 hover:text-[#E1306C] transition-all text-gray-400">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
             </motion.div>
-          ) : (
-            <motion.form 
-              onSubmit={handleSubmit} 
-              className="space-y-6 relative z-10"
-              initial="hidden"
-              whileInView="visible"
+
+            {/* Right Column: Contact Form */}
+            <motion.div 
+              initial={{ x: 30, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: { staggerChildren: 0.1, delayChildren: 0.2 }
-                }
-              }}
+              transition={{ duration: 0.6 }}
+              className="glass-panel relative p-8 sm:p-10 rounded-[2rem] border-white/10 overflow-hidden shadow-2xl"
             >
-              <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } }}
-              >
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-gray-300 block">
-                    {t.contactForm.name}
-                  </label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all"
-                    placeholder={t.contactForm.namePlaceholder}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-gray-300 block">
-                    {t.contactForm.email}
-                  </label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all"
-                    placeholder="jan@example.com"
-                  />
-                </div>
-              </motion.div>
+              {/* Background glow right behind form */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-zuni-purple/20 blur-[60px] pointer-events-none"></div>
 
-              <motion.div 
-                className="space-y-2"
-                variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } }}
-              >
-                <label htmlFor="phone" className="text-sm font-medium text-gray-300 block">
-                  {t.contactForm.phone}
-                </label>
-                <input 
-                  type="tel" 
-                  id="phone" 
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all"
-                  placeholder="+48 000 000 000"
-                />
-              </motion.div>
+              <div className="relative z-10">
+                {isSuccess ? (
+                <motion.div 
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="flex flex-col items-center justify-center py-16 text-center h-full"
+                >
+                  <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-6">
+                    <CheckCircle2 className="w-10 h-10 text-green-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2">{t.contactForm.success}</h3>
+                </motion.div>
+              ) : (
+                <motion.form 
+                  onSubmit={handleSubmit} 
+                  className="space-y-5"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                      opacity: 1,
+                      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+                    }
+                  }}
+                >
+                  <motion.div 
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-5"
+                    variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } }}
+                  >
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-xs font-semibold text-gray-400 uppercase tracking-wider block">
+                        {t.contactForm.name}
+                      </label>
+                      <input 
+                        type="text" 
+                        id="name" 
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all"
+                        placeholder={t.contactForm.namePlaceholder}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-xs font-semibold text-gray-400 uppercase tracking-wider block">
+                        {t.contactForm.email}
+                      </label>
+                      <input 
+                        type="email" 
+                        id="email" 
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all"
+                        placeholder="jan@example.com"
+                      />
+                    </div>
+                  </motion.div>
 
-              <motion.div 
-                className="space-y-2"
-                variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } }}
-              >
-                <label htmlFor="message" className="text-sm font-medium text-gray-300 block">
-                  {t.contactForm.message}
-                </label>
-                <textarea 
-                  id="message" 
-                  required
-                  rows={4}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all resize-none"
-                  placeholder="..."
-                ></textarea>
-              </motion.div>
+                  <motion.div 
+                    className="space-y-2"
+                    variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } }}
+                  >
+                    <label htmlFor="phone" className="text-xs font-semibold text-gray-400 uppercase tracking-wider block">
+                      {t.contactForm.phone}
+                    </label>
+                    <input 
+                      type="tel" 
+                      id="phone" 
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all"
+                      placeholder="+48 000 000 000"
+                    />
+                  </motion.div>
 
-              <motion.button 
-                type="submit" 
-                disabled={isSubmitting}
-                variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } }}
-                className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-gradient-to-r from-zuni-purple to-zuni-blue text-white font-bold text-lg hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-4 shadow-[0_0_20px_rgba(157,0,255,0.4)] hover:shadow-[0_0_30px_rgba(157,0,255,0.6)]"
-              >
-                {isSubmitting ? (
-                  <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                ) : (
-                  <>
-                    {t.contactForm.submit}
-                    <WhatsAppIcon className="w-6 h-6 ml-2" />
-                  </>
-                )}
-              </motion.button>
-            </motion.form>
-          )}
-        </motion.div>
+                  <motion.div 
+                    className="space-y-2"
+                    variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } }}
+                  >
+                    <label htmlFor="message" className="text-xs font-semibold text-gray-400 uppercase tracking-wider block">
+                      {t.contactForm.message}
+                    </label>
+                    <textarea 
+                      id="message" 
+                      required
+                      rows={4}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-zuni-purple/50 focus:border-transparent transition-all resize-none"
+                      placeholder="..."
+                    ></textarea>
+                  </motion.div>
+
+                  <motion.button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } }}
+                    className="w-full flex items-center justify-center gap-3 py-4 rounded-xl bg-gradient-to-r from-zuni-purple to-zuni-blue text-white font-bold hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-6 shadow-[0_0_20px_rgba(157,0,255,0.4)] hover:shadow-[0_0_30px_rgba(157,0,255,0.6)]"
+                  >
+                    {isSubmitting ? (
+                      <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    ) : (
+                      <>
+                        {t.contactForm.submit}
+                        <WhatsAppIcon className="w-5 h-5" />
+                      </>
+                    )}
+                  </motion.button>
+                </motion.form>
+              )}
+              </div>
+            </motion.div>
+          </div>
       </div>
     </section>
   );
